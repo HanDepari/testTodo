@@ -1,6 +1,17 @@
 <x-layout></x-layout>
 
 <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-500 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-lg font-semibold">To-Do List App</a>
+            <div>
+                <a href="#" class="px-4 py-2 hover:bg-blue-600 rounded-md">Profile</a>
+                <button class="px-4 py-2 bg-red-500 hover:bg-red-600 rounded-md">Logout</button>
+            </div>
+        </div>
+    </nav>
+
     <div class="container mx-auto mt-10 p-5 bg-white shadow-md rounded-lg">
         <h1 class="text-2xl font-bold mb-4">To-Do List</h1>
         <!-- Form Input Kegiatan -->

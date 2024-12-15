@@ -36,7 +36,12 @@
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="text-lg font-semibold">To-Do List App</a>
             <div>
-                <a href="{{ route('logout') }}" class="px-4 py-2 bg-red-500 hover:bg-red-600 rounded-md">Logout</a>
+                <form method="POST" action="{{ route('logout') }}" class="inline">
+                    @csrf
+                    <button type="submit" class="px-4 py-2 bg-red-500 hover:bg-red-600 rounded-md">
+                        Logout
+                    </button>
+                </form>
             </div>
         </div>
     </nav>

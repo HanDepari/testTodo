@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tix Adventure</title>
+    <title>landing</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body >
 
     <!-- Background Image -->
-    <div class="relative h-screen w-full bg-center bg-cover" style="background-image: url('{{ asset('img/list.jpg') }}');">
+    <div class="relative h-screen w-full bg-center bg-cover" style="background-image: url('{{ asset('img/list21.jpg') }}');">
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
 

@@ -15,7 +15,7 @@
         </div>
             <!-- Input Fields -->
             <x-bladewind::input name="username" required="true" viewable="true" label="Username" />
-            <x-bladewind::input type="password" required="true" viewable="true"  label="Password" />
+            <x-bladewind::input name="password" type="password" required="true" viewable="true"  label="Password" />
            
             
             <!-- Submit Button -->

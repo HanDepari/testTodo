@@ -50,7 +50,7 @@
 
 <style>
     body {
-        background-color: #94a0a0;
+        background-color: #f2f5f5;
         /* Biru muda */
     }
 

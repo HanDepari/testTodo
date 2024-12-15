@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 
-=======
 <html lang="en">
->>>>>>> 768796c0bb2fa27ecea2bfb53380da975728e074
+
 
 <head>
     <meta charset="UTF-8">

@@ -45,6 +45,7 @@ class TodoApiService
                 'password' => $password,
                 'no_telp' => $no_telp
             ]);
+            Log::info($response);
 
             return $response->successful();
         } catch (\Exception $e) {

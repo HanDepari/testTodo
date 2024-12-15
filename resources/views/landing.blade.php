@@ -18,8 +18,8 @@
             <div class="bg-white/70 backdrop-blur-md p-8 rounded-lg shadow-lg text-center">
                 <p class="text-gray-800 mt-4 text-lg font-semibold">Todo-list</p>
                 <div class="mt-6 space-x-4">
-                    <a class="bladewind-button bg-blue-500 text-white hover:bg-blue-600 hover:text-white px-6 py-2 rounded-lg">Login</a>
-                    <a class="bladewind-button bg-white text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white px-6 py-2 rounded-lg">Register</a>
+                    <a href="{{ route('login') }}" class="bladewind-button bg-blue-500 text-white hover:bg-blue-600 hover:text-white px-6 py-2 rounded-lg">Login</a>
+                    <a href="{{ route('register') }}" class="bladewind-button bg-white text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white px-6 py-2 rounded-lg">Register</a>
                 </div>
             </div>
         </div>

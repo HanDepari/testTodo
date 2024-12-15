@@ -1,5 +1,5 @@
 <x-layout></x-layout>
-
+<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 <body class="bg-gray-100">
     <!-- Navbar -->
     <nav class="bg-blue-500 text-white py-4">
@@ -95,5 +95,5 @@
         });
     </script>
 </body>
-
+<script src="{{ asset('js/dashboard.js') }}" defer></script>
 </html>

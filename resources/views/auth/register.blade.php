@@ -1,5 +1,5 @@
 <x-layout></x-layout>
-
+<link href="{{ asset('css/register.css') }}" rel="stylesheet">
 <x-bladewind::notification />
 
 <x-bladewind::card>
@@ -34,5 +34,6 @@
         </div>
 
     </form>
-
+   
 </x-bladewind::card>
+<script src="{{ asset('js/register.js') }}" defer></script>

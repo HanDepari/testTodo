@@ -1,0 +1,120 @@
+/* Styling untuk tombol di halaman ini */
+.btn-custom {
+    background: linear-gradient(90deg, #2196F3, #1976D2);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-custom:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling untuk form */
+.signup-form, #todoForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form h1, #todoForm h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1E3A8A;
+    margin-bottom: 8px;
+}
+
+.signup-form p, #todoForm label {
+    font-size: 14px;
+    color: #4B5563;
+    margin-bottom: 16px;
+}
+
+/* Styling untuk input */
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="number"],
+.signup-form textarea,
+#todoForm input[type="text"],
+#todoForm input[type="datetime-local"] {
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.signup-form input:focus,
+.signup-form textarea:focus,
+#todoForm input:focus {
+    border-color: #3B82F6;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+/* Styling untuk card dan tabel */
+.card-custom, .container {
+    padding: 20px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-custom:hover, .container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling tabel kegiatan */
+#taskTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#taskTable th, #taskTable td {
+    border: 1px solid #E5E7EB;
+    padding: 12px;
+    text-align: left;
+}
+
+#taskTable th {
+    background: #F3F4F6;
+    font-weight: bold;
+    color: #1E3A8A;
+}
+
+#taskTable tr:nth-child(even) {
+    background: #F9FAFB;
+}
+
+/* Loader untuk tombol */
+.btn-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #FFF;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 8px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

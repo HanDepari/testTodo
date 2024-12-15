@@ -14,15 +14,23 @@
         /* Warna placeholder abu-abu */
     }
 
-    .ml-4 {
-        margin-left: 1rem;
-        /* Spasi antara Nama Kegiatan dan Deadline */
+    .w-40 {
+        width: 12rem;
+        /* Perbesar lebar untuk menampilkan jam dan menit */
     }
 
-    .w-40 {
-        width: 10rem;
-        /* Lebar tetap untuk input Deadline */
+    .ml-4 {
+        margin-left: 0.5rem;
+        /* Kurangi jarak antar elemen jika terlalu besar */
     }
+
+    input[type="datetime-local"] {
+        padding: 0.5rem;
+        /* Tambahkan padding agar teks tidak terpotong */
+        box-sizing: border-box;
+        /* Pastikan padding tidak memengaruhi ukuran elemen */
+    }
+
 
     .border-none {
         border: none;
@@ -36,7 +44,6 @@
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="text-lg font-semibold">To-Do List App</a>
             <div>
-                <a href="#" class="px-4 py-2 hover:bg-blue-600 rounded-md">Profile</a>
                 <button class="px-4 py-2 bg-red-500 hover:bg-red-600 rounded-md">Logout</button>
             </div>
         </div>

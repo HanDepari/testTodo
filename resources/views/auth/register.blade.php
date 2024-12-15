@@ -7,7 +7,8 @@
         <div class="bg-blue-500 p-4 rounded-lg w-3/4 mx-auto">
             <h1 class="my-2 text-2xl font-light text-blue-900/80 text-center">Create Account</h1>
         </div>
-        <form method="get" class="signup-form">
+        <form method="POST" class="signup-form" action="/register">
+            @csrf
             <!-- Latar belakang biru muda untuk judul -->
 
             <div class="bg-blue-500 p-4 rounded-lg mt-3">
@@ -18,17 +19,17 @@
 
                     <div class="bg-blue-500 p-4 rounded-lg mt-3">
                         <!-- Input Full Name -->
-                        <x-bladewind::input name="Username " required="true" label="Username" 
+                        <x-bladewind::input name="username" required="true" label="Username" 
     error_message="You will need to enter your username" 
     class="p-4 rounded-lg mt-3" 
     style="background-color: #006994; color: white;" />
 
 <!-- Input username dan Mobile -->
 <div class="flex gap-4">
-    <x-bladewind::input name="mobile" required="true" label="Mobile" numeric="true" 
+    <x-bladewind::input name="no_telp" required="true" label="Mobile" numeric="true" 
         class="p-4 rounded-lg" 
         style="background-color: #006994; color: white;" />
-    <x-bladewind::input name="password" required="true" label="Password" 
+    <x-bladewind::input name="password" viewable="true" required="true" label="Password" 
         class="p-4 rounded-lg" 
         style="background-color: #006994; color: white;" />
 </div>

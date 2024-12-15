@@ -1,5 +1,5 @@
 <x-layout></x-layout>
-
+<link href="{{ asset('css/login.css') }}" rel="stylesheet">
 <body>
     <x-bladewind::card>
         <h1>Bladewind Card Component</h1>
@@ -18,5 +18,5 @@
         </form>
     </x-bladewind::card>
 </body>
-
+<script src="{{ asset('js/login.js') }}" defer></script>
 </html>

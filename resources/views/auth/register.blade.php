@@ -1,78 +1,54 @@
 <x-layout></x-layout>
-
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 <x-bladewind::notification />
-<div class="center-card bg-blue-500 p-4 rounded-lg w-3/4 mx-auto">
-    <h1 class="my-2 text-2xl font-red text-blue-900/80 text-center"> TODO-LIST</h1>
-    <x-bladewind::card class="center-card bg-red-700 p-4 w-3/4 mx-auto p-6">
-        <div class="bg-blue-500 p-4 rounded-lg w-3/4 mx-auto">
-            <h1 class="my-2 text-2xl font-light text-blue-900/80 text-center">Create Account</h1>
-        </div>
-        <form method="POST" class="signup-form" action="/register">
-            @csrf
-            <!-- Latar belakang biru muda untuk judul -->
+<div class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <!-- Outer Container -->
+    <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
+        <!-- Judul Halaman -->
+        <h1 class="text-3xl font-bold text-blue-700 text-center mb-4">TODO-LIST</h1>
+        <x-bladewind::card class="p-6 bg-gray-50 rounded-lg">
+            <!-- Header Form -->
+            <div class="bg-blue-600 text-white text-center py-3 rounded-t-lg">
+                <h2 class="text-xl font-semibold">Create Account</h2>
+            </div>
 
-            <div class="bg-blue-500 p-4 rounded-lg mt-3">
-                <div class="bg-cyan-500 p-4 rounded-lg mt-3">
-                    <p class="mt-3 mb-6 text-white-900/80 text-sm text-center">
-                        Silahkan isi untuk melakukan daftar
-                    </p>
+            <!-- Form -->
+            <form method="POST" class="mt-4 space-y-4" action="/register">
+                @csrf
 
-                    <div class="bg-blue-500 p-4 rounded-lg mt-3">
-                        <!-- Input Full Name -->
-                        <x-bladewind::input name="username" required="true" label="Username" 
-    error_message="You will need to enter your username" 
-    class="p-4 rounded-lg mt-3" 
-    style="background-color: #006994; color: white;" />
+                <!-- Pesan Arahannya -->
+                <p class="text-gray-600 text-center text-sm">
+                    Silahkan isi form untuk membuat account.
+                </p>
 
-<!-- Input username dan Mobile -->
-<div class="flex gap-4">
-    <x-bladewind::input name="no_telp" required="true" label="Mobile" numeric="true" 
-        class="p-4 rounded-lg" 
-        style="background-color: #006994; color: white;" />
-    <x-bladewind::input name="password" viewable="true" required="true" label="Password" 
-        class="p-4 rounded-lg" 
-        style="background-color: #006994; color: white;" />
-</div>
+                <!-- Input Username -->
+                <x-bladewind::input name="username" required="true" label="Username" 
+                    error_message="Username wajib diisi" 
+                    class="bg-gray-200 text-gray-800" />
 
-                        </div>
-                    </div>
+                <!-- Input No. Telp dan Password -->
+                <div class="flex gap-4">
+                    <x-bladewind::input name="no_telp" required="true" label="Nomor Telepon" numeric="true" 
+                        class="bg-gray-200 text-gray-800" />
+                    <x-bladewind::input name="password" viewable="true" required="true" label="Password" 
+                        class="bg-gray-200 text-gray-800" />
                 </div>
-            </div>
 
-            <!-- Tombol Sign Up -->
-            <div class="text-center">
-                <x-bladewind::button name="btn-save" has_spinner="true" type="primary" can_submit="true" class="mt-3">
-                    Sign Up Today
-                </x-bladewind::button>
-            </div>
-        </form>
-    </x-bladewind::card>
+                <!-- Tombol Submit -->
+                <div class="text-center mt-6">
+                    <x-bladewind::button name="btn-save" has_spinner="true" type="primary" can_submit="true" 
+                        class="bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+                        Sign Up 
+                    </x-bladewind::button>
+                </div>
+            </form>
+        </x-bladewind::card>
+    </div>
 </div>
 
+<!-- Style Tambahan -->
 <style>
     body {
-        background-color: #f2f5f5;
-        /* Biru muda */
+        background-color: #F3F4F6; /* Tailwind's bg-gray-100 */
     }
-
-    .outer-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        padding: 20px;
-    }
-
-    .inner-container {
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .center-card {
-        max-width: 600px;
-        /* Membatasi lebar kartu */
-        margin: 0 auto;
-        /* Memposisikan kartu di tengah */
-        margin-top: 100px;
-    }
-    
 </style>

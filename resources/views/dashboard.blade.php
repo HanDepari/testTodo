@@ -36,8 +36,7 @@
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="text-lg font-semibold">To-Do List App</a>
             <div>
-                <a href="#" class="px-4 py-2 hover:bg-blue-600 rounded-md">Profile</a>
-                <button class="px-4 py-2 bg-red-500 hover:bg-red-600 rounded-md">Logout</button>
+                <a href="{{ route('logout') }}" class="px-4 py-2 bg-red-500 hover:bg-red-600 rounded-md">Logout</a>
             </div>
         </div>
     </nav>
@@ -45,7 +44,7 @@
     <div class="container mx-auto mt-10 p-5 bg-white shadow-md rounded-lg">
         <h1 class="text-2xl font-bold mb-4">To-Do List</h1>
                 <!-- Form Input Kegiatan -->
-        <form id="todoForm" class="mb-6" action="{{ route('addtask') }}" method="POST">
+        <form id="todoForm" class="mb-6" action="{{ route('tasks.store') }}" method="POST">
             @csrf
             <input type="hidden" id="taskId" name="task_id" value="">
             <div class="mb-4">
@@ -139,11 +138,15 @@
                 const taskId = row.dataset.taskId;
                 const isChecked = checkbox.checked;
 
-                // Retrieve the Bearer token from the session
+                // Retrieve the base URL and Bearer token from Laravel config and session
+                const baseUrl = '{{ config('services.todo_api.base_url') }}';
                 const apiToken = '{{ session('api_token') }}';
 
-                // Post a PATCH request to the update route
-                fetch(`/tasks/${taskId}`, {
+                // Construct the full URL for the PATCH request
+                const url = `${baseUrl}/tasks/${taskId}/complete`;
+
+                // Post a PATCH request to the API
+                fetch(url, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json',
@@ -227,7 +230,7 @@
                 const methodInput = document.createElement('input');
                 methodInput.type = 'hidden';
                 methodInput.name = '_method';
-                methodInput.value = 'PUT';
+                // methodInput.value = 'PUT';
                 form.appendChild(methodInput);
             }
         });
@@ -241,7 +244,7 @@
             cancelEditButton.classList.add('hidden');
             
             // Reset form action
-            form.action = "{{ route('addtask') }}";
+            form.action = "{{ route('tasks.store') }}";
             form.method = 'POST';
             
             // Remove method spoofing input

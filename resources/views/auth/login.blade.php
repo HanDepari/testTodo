@@ -5,7 +5,8 @@
     <!-- Card Container -->
     <x-bladewind::card class="bg-blue-500 w-96 mx-auto p-6">
         <h1 class="text-center text-2xl font-bold mb-4 text-gray-800">Todo</h1>
-        <form method="get" class="signup-form ">
+        <form method="POST" class="signup-form" action="/login">
+            @csrf   
             <div class="bg-blue-950">
             <h1 class="my-2 text-xl font-light text-white bg-blue-950">Login</h1>
             <p class="mt-3 mb-6 text-white text-sm ">
@@ -13,8 +14,8 @@
             </p>
         </div>
             <!-- Input Fields -->
-            <x-bladewind::input name="username" required="true" label="Username" class="text-blue-100 "/>
-            <x-bladewind::input type="password" required="true" viewable="true"  label="Password" />
+            <x-bladewind::input name="username" required="true" label="Username" "/>
+            <x-bladewind::input name="password" type="password" required="true" viewable="true"  label="Password" />
             
             <!-- Submit Button -->
             <div class="text-center">

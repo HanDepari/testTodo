@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Services\TodoApiService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class TaskController extends Controller
 {
@@ -19,17 +21,19 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = $this->apiService->getTasks();
-        return view('tasks.index', compact('tasks'));
+        return view('dashboard', compact('tasks'));
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'due_date' => 'nullable|date_format:Y-m-d H:i:s',
+            'due_date' => 'nullable|date_format:Y-m-d\TH:i',
         ]);
-
-        $task = $this->apiService->createTask($validated['title'], $validated['description']);
+        
+        $dueDate = Carbon::createFromFormat('Y-m-d\TH:i', $request->input('due_date'))->format('Y-m-d H:i:s');
+        $validated['due_date'] = $dueDate;
+        $task = $this->apiService->createTask($validated['title'], $validated['due_date']);
 
         if ($task) {
             return redirect()->route('tasks.index')->with('success', 'Task created successfully');
@@ -42,10 +46,14 @@ class TaskController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'due_date' => 'nullable|date_format:Y-m-d H:i:s',
+            'due_date' => 'nullable|date_format:Y-m-d\TH:i',
         ]);
+        
+        $dueDate = Carbon::createFromFormat('Y-m-d\TH:i', $request->input('due_date'))->format('Y-m-d H:i:s');
+        $validated['due_date'] = $dueDate;
 
-        $task = $this->apiService->updateTask($taskId, $validated['title'], $validated['description']);
+        $task = $this->apiService->updateTask($taskId, $validated['title'], $validated['due_date']);
+        Log::info($task);
 
         if ($task) {
             return redirect()->route('tasks.index')->with('success', 'Task updated successfully');

@@ -30,7 +30,7 @@
                 <div class="flex gap-4">
                     <x-bladewind::input name="no_telp" required="true" label="Nomor Telepon" numeric="true" 
                         class="bg-gray-200 text-gray-800" />
-                    <x-bladewind::input name="password" viewable="true" required="true" label="Password" 
+                    <x-bladewind::input name="password" type="password" viewable="true" required="true" label="Password" 
                         class="bg-gray-200 text-gray-800" />
                 </div>
 

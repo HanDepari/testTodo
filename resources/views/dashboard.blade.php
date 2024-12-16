@@ -35,6 +35,14 @@
     .border-none {
         border: none;
     }
+
+    #task-field {
+        transition: background-color 1s ease-in-out; /* Smooth transition for background-color */
+    }
+
+    .highlight {
+        background-color: #ffeb3b; /* Yellow highlight */
+    }
 </style>
 <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 
@@ -62,7 +70,7 @@
             <input type="hidden" id="taskId" name="task_id" value="">
             <div class="mb-4">
                 <label for="taskDetails" class="block text-gray-700 font-medium mb-2">Nama Kegiatan:</label>
-                <div class="flex items-center border rounded-md px-4 py-2">
+                <div class="flex items-center border rounded-md px-4 py-2" id="task-field">
                     <!-- Input Nama Kegiatan -->
                     <input type="text" id="taskName" name="title"
                         class="flex-1 border-none focus:ring-0 placeholder-gray-400"
@@ -100,7 +108,8 @@
                         <tr class="bg-white" data-task-id="{{ $task['id'] }}">
                             <td class="border border-gray-300 px-4 py-2 task-title">{{ $task['title'] }}</td>
                             <td class="border border-gray-300 px-4 py-2 task-deadline">
-                                {{ $task['due_date'] ?? 'Tidak ada deadline' }}
+                                <span class="due-date-text">{{ $task['due_date_text'] }}</span>
+                                <input type="hidden" class="due-date-input" value="{{ $task['due_date'] }}">
                             </td>
                             <td class="border border-gray-300 px-4 py-2 text-center">
                                 <input type="checkbox" class="rounded-full completed-checkbox"
@@ -214,6 +223,8 @@
         const submitButton = document.getElementById('submitButton');
         const cancelEditButton = document.getElementById('cancelEditButton');
         const taskIdInput = document.getElementById('taskId');
+        const taskTable = document.getElementById('taskTable');
+        const taskField = document.getElementById('task-field');
 
         // Edit task functionality
         document.getElementById('taskTable').addEventListener('click', (e) => {
@@ -228,8 +239,8 @@
 
                 // Convert text deadline to datetime-local format
                 if (deadlineCell.textContent.trim() !== 'Tidak ada deadline') {
-                    const formattedDeadline = convertToDateTimeLocal(deadlineCell.textContent.trim());
-                    taskDeadlineInput.value = formattedDeadline;
+                    const originalDueDate = row.querySelector('.due-date-input').value;
+                    taskDeadlineInput.value = convertToDateTimeLocal(originalDueDate);
                 }
 
                 // Set task ID for update
@@ -249,6 +260,12 @@
                 methodInput.name = '_method';
                 // methodInput.value = 'PUT';
                 form.appendChild(methodInput);
+
+                // Highlight the task title field
+                taskField.classList.add('highlight');
+                setTimeout(() => {
+                    taskField.classList.remove('highlight');
+                }, 2000); // Remove highlight after 2 seconds
             }
         });
 
@@ -272,17 +289,16 @@
         });
 
         // Helper function to convert text date to datetime-local format
-        function convertToDateTimeLocal(dateString) {
-            // Assuming date is in a format like '2024-12-13 11:00'
-            try {
-                const date = new Date(dateString);
-                // Format to datetime-local (YYYY-MM-DDTHH:MM)
-                return date.toISOString().slice(0, 16);
-            } catch (error) {
-                console.error('Error converting date:', error);
-                return '';
+            function convertToDateTimeLocal(dateString) {
+                try {
+                    const date = new Date(dateString);
+                    return date.toISOString().slice(0, 16); // Format to datetime-local
+                } catch (error) {
+                    console.error('Error converting date:', error);
+                    return '';
+                }
             }
-        }
+
     });
 
     // Existing checkbox and completed task scripts remain the same

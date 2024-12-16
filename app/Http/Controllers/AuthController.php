@@ -46,6 +46,6 @@ class AuthController extends Controller
     public function logout()
     {
         $this->apiService->logout();
-        return redirect()->route('login')->with('success', 'Logged out successfully');
+        return redirect()->intended('/')->with('success', 'Logged out successfully');
     }
 }

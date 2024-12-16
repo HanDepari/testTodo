@@ -17,7 +17,7 @@
             <x-bladewind::input name="username" required="true" viewable="true" label="Username" />
             <x-bladewind::input name="password" type="password" required="true" viewable="true"  label="Password" />
            
-            
+            {{ Log::info('API TOKEN: '.session('api_token')); }}
             <!-- Submit Button -->
             <div class="text-center">
                 <x-bladewind::button name="btn-save" has_spinner="true" type="primary" can_submit="true" class="mt-3">

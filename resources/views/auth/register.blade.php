@@ -19,34 +19,32 @@
 
                     <div class="bg-blue-500 p-4 rounded-lg mt-3">
                         <!-- Input Full Name -->
-                        <x-bladewind::input name="username" required="true" label="Username" 
-    error_message="You will need to enter your username" 
-    class="p-4 rounded-lg mt-3" 
-    style="background-color: #006994; color: white;" />
+                        <x-bladewind::input name="username" required="true" label="Username"
+                            error_message="You will need to enter your username" class="p-4 rounded-lg mt-3"
+                            style="background-color: #006994; color: white;" />
 
-<!-- Input username dan Mobile -->
-<div class="flex gap-4">
-    <x-bladewind::input name="no_telp" required="true" label="Mobile" numeric="true" 
-        class="p-4 rounded-lg" 
-        style="background-color: #006994; color: white;" />
-    <x-bladewind::input name="password" viewable="true" required="true" label="Password" 
-        class="p-4 rounded-lg" 
-        style="background-color: #006994; color: white;" />
-</div>
-
+                        <!-- Input username dan Mobile -->
+                        <div class="flex gap-4">
+                            <x-bladewind::input name="no_telp" required="true" label="Mobile" numeric="true"
+                                class="p-4 rounded-lg" style="background-color: #006994; color: white;" />
+                            <x-bladewind::input name="password" type="password" viewable="true" required="true"
+                                label="Password" class="p-4 rounded-lg"
+                                style="background-color: #006994; color: white;" />
                         </div>
+
                     </div>
                 </div>
             </div>
+</div>
 
-            <!-- Tombol Sign Up -->
-            <div class="text-center">
-                <x-bladewind::button name="btn-save" has_spinner="true" type="primary" can_submit="true" class="mt-3">
-                    Sign Up Today
-                </x-bladewind::button>
-            </div>
-        </form>
-    </x-bladewind::card>
+    <!-- Tombol Sign Up -->
+    <div class="text-center">
+        <x-bladewind::button name="btn-save" has_spinner="true" type="primary" can_submit="true" class="mt-3">
+            Sign Up Today
+        </x-bladewind::button>
+    </div>
+</form>
+</x-bladewind::card>
 </div>
 
 <style>
@@ -74,5 +72,4 @@
         /* Memposisikan kartu di tengah */
         margin-top: 100px;
     }
-    
 </style>

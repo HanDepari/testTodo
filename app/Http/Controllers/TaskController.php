@@ -21,6 +21,11 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = $this->apiService->getTasks();
+        // Modify the due_date format for each task
+        $tasks = collect($tasks)->map(function ($task) {
+            $task['due_date_text'] = Carbon::parse($task['due_date'])->translatedFormat('l, d-m-Y || H:i');
+            return $task;
+        });
         return view('dashboard', compact('tasks'));
     }
 
